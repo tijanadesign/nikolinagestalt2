@@ -63,8 +63,9 @@
     .nav-panel[data-open="true"] { display: grid !important; }
     .nav-panel a { padding: 13px 0; font-size: 18px; text-decoration: none; border-bottom: 1px solid var(--color-divider); }
     .nav-panel a:last-child { border-bottom: 0; color: var(--color-accent-700); }
-    #hero { padding: 56px 22px 0 !important; min-height: 0 !important; }
-    #hero .hero-img { height: 230px; margin-top: 36px; }
+    #hero { min-height: 0 !important; aspect-ratio: auto !important; }
+    #hero .hero-img { display: none !important; }
+    #hero { padding: 56px 22px 60px !important; }
     #hero h1 { font-size: 38px !important; max-width: none !important; }
     #hero h1 span { display: inline !important; }
     #hero .btn-cta { width: 100%; }
