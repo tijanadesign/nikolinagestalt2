@@ -28,11 +28,19 @@
     background: var(--color-accent-700); border-color: var(--color-accent-700); color: #fdfaf4; }
   .btn-cta:hover { background: var(--color-accent-800); border-color: var(--color-accent-800); color: #fdfaf4; }
   .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+  #hero { aspect-ratio: 1942 / 809; display: flex; align-items: center; }
+  #hero > div { width: 100%; }
   .plate img { display: block; width: 100%; height: auto; }
+
+  @media (max-width: 1100px) {
+    #hero { aspect-ratio: auto; min-height: 0 !important; flex-direction: column; align-items: stretch;
+      padding: 64px 24px 0 !important; }
+    #hero > div { order: 1; min-height: 0 !important; }
+    #hero .hero-img { position: static; order: 2; width: 100%; height: 300px; margin-top: 48px; object-position: 72% center; }
+  }
 
   @media (max-width: 900px) {
     .nav { flex-wrap: wrap; row-gap: 8px; }
-    #hero { padding: 64px 24px !important; min-height: 520px !important; }
     #hero h1 { font-size: 42px !important; }
     section { padding: 48px 24px !important; }
     .cols-3, .cols-2, .split { grid-template-columns: 1fr !important; gap: 32px !important; }
@@ -41,19 +49,69 @@
     #gestalt h2 { width: auto !important; height: auto !important; }
     footer { padding: 24px !important; }
   }
+
+  /* — telefon — */
+  .nav-burger, .nav-panel { display: none; }
+  .hero-img { object-position: 100% center; }
+  @media (max-width: 768px) {
+    .nav { flex-wrap: nowrap; position: relative; }
+    .nav-links { display: none !important; }
+    .nav-burger { display: inline-flex !important; align-items: center; justify-content: center;
+      width: 46px; height: 46px; margin-right: -10px; background: none; border: 0; cursor: pointer; color: #2c3444; }
+    .nav-panel { position: absolute; top: 100%; left: 0; right: 0; background: #fdfaf4;
+      border-bottom: 1px solid var(--color-divider); padding: 8px 22px 22px; gap: 2px; }
+    .nav-panel[data-open="true"] { display: grid !important; }
+    .nav-panel a { padding: 13px 0; font-size: 18px; text-decoration: none; border-bottom: 1px solid var(--color-divider); }
+    .nav-panel a:last-child { border-bottom: 0; color: var(--color-accent-700); }
+    #hero { padding: 56px 22px 0 !important; min-height: 0 !important; }
+    #hero .hero-img { height: 230px; margin-top: 36px; }
+    #hero h1 { font-size: 38px !important; max-width: none !important; }
+    #hero h1 span { display: inline !important; }
+    #hero .btn-cta { width: 100%; }
+    #hero > div:last-child > div:last-child { width: 100%; }
+    section { padding: 48px 22px !important; gap: 34px !important; }
+    section h2 { font-size: 30px !important; }
+    section h3 { font-size: 22px !important; }
+    .cols-3 > .card { padding: 22px !important; border-left: 1px solid var(--color-divider) !important; }
+    table.table { display: block; }
+    table.table thead { display: none; }
+    table.table tbody, table.table tr, table.table td { display: block; width: auto; }
+    table.table tr { padding: 14px 0; border-bottom: 1px solid var(--color-divider); }
+    table.table td { border: 0 !important; padding: 2px 0 !important; text-align: left !important; }
+    table.table td:first-child { font-family: Georgia, "Times New Roman", serif; font-size: 20px; color: #2c3444; }
+    details { border-bottom: 0 !important; }
+    details:last-child { border-bottom: 1px solid var(--color-divider) !important; }
+    footer { padding: 24px 22px 30px !important; }
+  }
 </style>
 </head>
 <body>
 
 <nav class="nav" style="position: sticky; top: 0; background: #fdfaf4; z-index: 5;">
   <span class="nav-brand" style="font-size: 16px; font-weight: 400;">Nikolina Đurović</span>
-  <a href="#prvi-korak">Prvi korak</a>
-  <a href="#gestalt">Geštalt</a>
-  <a href="#formati">Formati i cene</a>
-  <a href="#o-meni">O meni</a>
+  <div class="nav-links" style="display: flex; align-items: center; gap: var(--space-4);">
+    <a href="#prvi-korak">Prvi korak</a>
+    <a href="#gestalt">Geštalt</a>
+    <a href="#formati">Formati i cene</a>
+    <a href="#o-meni">O meni</a>
+  </div>
+  <button class="nav-burger" id="burger" type="button" aria-label="Meni" aria-expanded="false" aria-controls="nav-panel">
+    <span style="display: grid; gap: 5px; width: 22px;">
+      <span style="display: block; height: 1.5px; background: currentColor;"></span>
+      <span style="display: block; height: 1.5px; background: currentColor;"></span>
+      <span style="display: block; height: 1.5px; background: currentColor;"></span>
+    </span>
+  </button>
+  <div class="nav-panel" id="nav-panel" data-open="false">
+    <a href="#prvi-korak">Prvi korak</a>
+    <a href="#gestalt">Geštalt</a>
+    <a href="#formati">Formati i cene</a>
+    <a href="#o-meni">O meni</a>
+    <a href="#kontakt">Zakaži prvi razgovor</a>
+  </div>
 </nav>
 
-<div id="hero" style="position: relative; padding: 96px 72px; min-height: 680px; text-align: left; border-bottom: 1px solid var(--color-divider); overflow: hidden;">
+<div id="hero" style="position: relative; padding: 96px 72px; min-height: 600px; text-align: left; border-bottom: 1px solid var(--color-divider); overflow: hidden;">
   <img class="hero-img" src="images/hero.png" alt="Žena zatvorenih očiju okrenuta ka svetlu, ilustracija u toplim bež tonovima">
   <div style="position: relative; z-index: 2; min-height: 460px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 8px;">
     <p style="font-size: 16px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-700); margin: 0 0 26px;">Geštalt psihoterapija · uživo i onlajn</p>
@@ -249,6 +307,12 @@
 </footer>
 
 <script>
+  (function () {
+    var b = document.getElementById('burger'), p = document.getElementById('nav-panel');
+    function set(open) { p.dataset.open = open ? 'true' : 'false'; b.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+    b.addEventListener('click', function () { set(p.dataset.open !== 'true'); });
+    p.addEventListener('click', function (e) { if (e.target.tagName === 'A') set(false); });
+  })();
   document.getElementById('kontakt-forma').addEventListener('submit', function (e) {
     e.preventDefault();
     var btn = e.currentTarget.querySelector('button[type=submit]');
