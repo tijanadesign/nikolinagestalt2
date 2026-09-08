@@ -1,46 +1,46 @@
-# Nikolina Đurović — geštalt psihoterapija
+# Nikolina Đurović — gestalt psychotherapy
 
-Statični jednostrani sajt. Struktura:
+Static one-page site. Structure:
 
 ```
-index.html      — cela stranica
-styles.css      — stilovi (Classical dizajn sistem)
+index.html      — the whole page
+styles.css      — styles (Classical design system)
 images/         — hero.png, gestalt.webp, portret.webp
-.nojekyll       — obavezno! bez njega GitHub menja izgled sajta
+.nojekyll       — required! without it GitHub changes how the site looks
 ```
 
-**Važno:** sva četiri stavke moraju biti u repozitorijumu, uključujući skriveni fajl `.nojekyll`.
-Ako `styles.css` nije uploadovan ili je `.nojekyll` izostavljen, sajt će na GitHubu izgledati
-drugačije — bez boja, sa drugim fontovima i rasporedom.
+**Important:** all four items must be in the repository, including the hidden `.nojekyll` file.
+If `styles.css` is not uploaded or `.nojekyll` is left out, the site on GitHub will look
+different — no colors, different fonts and layout.
 
-## Hostovanje na GitHub Pages
+## Hosting on GitHub Pages
 
-1. Napravi repozitorijum na GitHubu (npr. `nikolina-djurovic`).
-2. Ubaci sav sadržaj ovog foldera u koren repozitorijuma (`index.html`, `styles.css`, `images/`).
+1. Create a repository on GitHub (e.g. `nikolina-djurovic`).
+2. Put everything from this folder in the repository root (`index.html`, `styles.css`, `images/`).
 3. Settings → Pages → Source: `Deploy from a branch`, Branch: `main`, folder: `/ (root)`.
-4. Sajt će biti na `https://<korisnicko-ime>.github.io/<repo>/`.
+4. The site will be at `https://<username>.github.io/<repo>/`.
 
-Za sopstveni domen: Settings → Pages → Custom domain, pa kod registrara dodaj CNAME zapis ka `<korisnicko-ime>.github.io`.
+For a custom domain: Settings → Pages → Custom domain, then add a CNAME record at your registrar pointing to `<username>.github.io`.
 
-## Zamena slika
+## Replacing images
 
-Zameni fajlove u `images/` istim imenima i sve radi bez menjanja koda:
-- `hero.png` — horizontalno, ~2400 × 1000 px, motiv desno
-- `gestalt.webp` — vertikalno 4:5, min. 1200 × 1500 px
-- `portret.webp` — vertikalno 4:5, min. 1200 × 1500 px
+Replace the files in `images/` using the same names and everything works with no code changes:
+- `hero.png` — horizontal, ~2400 × 1000 px, subject on the right
+- `gestalt.webp` — vertical 4:5, min. 1200 × 1500 px
+- `portret.webp` — vertical 4:5, min. 1200 × 1500 px
 
-## Kontakt forma
+## Contact form
 
-Trenutno samo prikazuje potvrdu — ne šalje mejl. Za pravo slanje najlakše je Formspree:
-napravi formu na formspree.io i u `index.html` dodaj `action="https://formspree.io/f/TVOJ-ID" method="POST"`
-na `<form id="kontakt-forma">`, pa obriši `<script>` blok na dnu.
+Right now it only shows a confirmation — it does not send email. The easiest way to really send is Formspree:
+create a form at formspree.io and in `index.html` add `action="https://formspree.io/f/YOUR-ID" method="POST"`
+to `<form id="kontakt-forma">`, then delete the `<script>` block at the bottom.
 
-## Pre objave proveri
+## Check before publishing
 
-- Broj krizne linije u futeru.
-- Podatke o obrazovanju, superviziji, adresi, mejlu i telefonu.
-- Utisci klijenata su primeri — objavljuj samo uz pismenu saglasnost.
+- The crisis line number in the footer.
+- Education, supervision, address, email and phone details.
+- Client testimonials are examples — publish only with written consent.
 
-## Mobilna verzija
+## Mobile version
 
-Sajt je responzivan u istom `index.html` — nema odvojene mobilne strane. Na širinama do 768px: burger meni, hero sa svetlijim slojem preko slike, sve kolone u jedan red, tabela cena kao kartice, forma puna širina.
+The site is responsive within the same `index.html` — there is no separate mobile page. Up to 768px wide: burger menu, hero without the image, all columns in a single stack, the pricing table as cards, full-width form.
